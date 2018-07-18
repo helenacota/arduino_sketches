@@ -1,3 +1,4 @@
+// http://www.comofazerascoisas.com.br/controlando-8-leds-com-arduino-usando-ci74HC595-fazendo-uma-contagem-binaria.html
 // https://br-arduino.org/2015/01/aumentando-as-portas-digitais-do-arduino-com-o-ci-74hc595-shift-register.html
 // This is the working code for SN74HC595
 
