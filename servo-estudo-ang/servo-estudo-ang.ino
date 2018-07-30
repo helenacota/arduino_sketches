@@ -4,24 +4,36 @@
 
 Servo servo;
 
-int valorAng = 10;
+int valorAng = 25;
+int valorAnt = 0;
+int valorPot = 0;
 int dir=0;
 
 void setup() {
   // put your setup code here, to run once:
   servo.attach(servoPort);
   Serial.begin(9600);
-  servo.write(10);
-  delay(1000);
+  //servo.write(300);
+  //delay(3000);
   Serial.println("setup OK!");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
-  Serial.println(valorAng);
 
-  if(dir == 0)
+  valorPot = analogRead(A0);
+  valorAng = map(valorPot,0,1023,0,55);
+
+  if(valorAnt != valorAng){
+    valorAnt = valorAng;
+    Serial.println(String(valorPot) + " - " + String(valorAng));
+    servo.write(valorAng);
+  }
+
+  delay(100);
+
+  /*if(dir == 0)
   {
     valorAng += 10;
   }else{
@@ -40,8 +52,7 @@ void loop() {
     dir = 0;
   }
 
-  servo.write(valorAng);
-  delay(100);
+  */
   
 
 }
